@@ -1,0 +1,16 @@
+<form class="lite-form">
+  <mat-form-field class="lite-full-width">
+    <input matInput placeholder="输入新闻标题" 
+    maxlength="100" name="title" (keyup)="syncTitle(newTitle.value)" 
+    value={{markdownTitle}} #newTitle>
+  </mat-form-field>
+
+  <mat-form-field class="lite-full-width lite-field">
+    <textarea matInput placeholder="输入新闻内容" rows="16" name="content" 
+    (keyup)="syncContent(newContent.value)"
+    value={{markdownContent}}
+      #newContent></textarea>
+  </mat-form-field>
+</form>
+<button mat-raised-button  (click)="submitData()">提交</button>
+<markdown [data]="markdownContent"></markdown>

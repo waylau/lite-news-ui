@@ -1,10 +1,4 @@
 <mat-nav-list>
-  <a mat-list-item href="/news" >莒县小店中心初中喜迎市教研室“送教下乡”活动</a>
-  <a mat-list-item href="/news" >美议员称中国"技术偷窃" 外交部:中国不偷不抢</a>
-  <a mat-list-item href="/news" >习近平会见国际奥委会主席巴赫</a>
-  <a mat-list-item href="/news" >阿里巴巴成首个单季营收破千亿中国互联网公司</a>
-  <a mat-list-item href="/news" >亿万网民参与百度抖音春晚互动热度空前</a>
-  <a mat-list-item href="/news" >中宣部、中央文明办慰问帮扶全国道德模范活动</a>
-  <a mat-list-item href="/news" >墨西哥政府宣布“毒品战争”正式结束</a>
-  <a mat-list-item href="/news" >证件照让明星颜值现真身！吴亦凡不需要PS</a>
+  <a mat-list-item *ngFor="let news of newsList" 
+  href="/news/{{news.newsId}}">{{news.title}}</a>
 </mat-nav-list>

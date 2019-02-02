@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+import { News } from './../news'
 
 @Component({
   selector: 'app-news',
@@ -6,10 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit {
+  newsListUrl = '/api/news';
+  newsList: News[] = [];
 
-  constructor() { }
+  // 注入HttpClient
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.getData();
+  }
+
+  // 获取后台接口数据
+  getData() {
+    return this.http.get<News[]>(this.newsListUrl)
+      .subscribe(data => this.newsList = data);
   }
 
 }

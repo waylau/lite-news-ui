@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common'; // 用于回退浏览记录
+import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
+
+import { News } from './../news'
 
 @Component({
   selector: 'app-news-detail',
@@ -7,10 +11,24 @@ import { Location } from '@angular/common'; // 用于回退浏览记录
   styleUrls: ['./news-detail.component.css']
 })
 export class NewsDetailComponent implements OnInit {
+  newsUrl = '/api/news/';
+  news: News = null;
 
-  constructor(private location: Location) { }
+  // 注入HttpClient
+  constructor(private location: Location, 
+    private http: HttpClient, 
+    private route: ActivatedRoute) { }
+
 
   ngOnInit() {
+    this.getData();
+  }
+
+  // 获取后台接口数据
+  getData() {
+    const newsId = +this.route.snapshot.paramMap.get('newsId');
+    return this.http.get<News>(this.newsUrl + newsId)
+      .subscribe(data => this.news = data);
   }
 
   // 返回

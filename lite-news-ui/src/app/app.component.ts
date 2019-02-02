@@ -8,17 +8,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit {
   title = 'lite-news-ui';
-  configUrl = '/lite';
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    console.log("start");
-    this.getData();
-    console.log("end");
   }
 
-  getData() {
-    return this.http.get(this.configUrl).subscribe((data) => console.log(data));
-  }
 }

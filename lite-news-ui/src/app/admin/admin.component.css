@@ -1,0 +1,13 @@
+.lite-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .lite-field {
+    height: 100%;
+  }
+
+  .lite-full-width {
+    width: 100%;
+  }
