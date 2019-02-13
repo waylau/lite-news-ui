@@ -12,7 +12,7 @@ import { News } from './../news'
 })
 export class NewsDetailComponent implements OnInit {
   newsUrl = '/api/news/';
-  news: News = null;
+  news: News = new News(null, null, null, null, null);
 
   // 注入HttpClient
   constructor(private location: Location, 
